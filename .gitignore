@@ -1,0 +1,15 @@
+# Visual Studio Code
+.vscode
+
+# Build files
+build
+build-platform-generators
+.sconsign.dblite
+extension_api.json
+
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+*.os
