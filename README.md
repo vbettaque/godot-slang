@@ -2,7 +2,9 @@
 
 Integration of the Slang shader language into Godot.
 
-## How to build
+**WORK IN PROGRESS!**
+
+## How to build for macOS
 
 1. Clone repository recursively
 2. Build godot-cpp according to docs
