@@ -23,6 +23,11 @@ jobs:
       options: --user root
     
     steps:
+      - name: Install Git (required for checkout with submodules)
+        run: |
+          apt-get update
+          apt-get install -y git ca-certificates
+      
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
@@ -38,7 +43,6 @@ jobs:
             python3 \
             python3-pip \
             python3-venv \
-            git \
             scons \
             pkg-config \
             libx11-dev \
@@ -53,7 +57,6 @@ jobs:
             libxrandr-dev \
             libxss-dev \
             libssl-dev \
-            ca-certificates \
             zip
       
       - name: Set up Python virtual environment
