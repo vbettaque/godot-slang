@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="TestCompile" inherits="Object" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../class.xsd">
+	<brief_description>
+		Compiles Slang shader files to GLSL format using the Slang compilation API.
+	</brief_description>
+	<description>
+		TestCompile provides functionality to cross-compile shader code from Slang to GLSL format. 
+		The implementation follows patterns from the official Slang hello-world example for robust compilation.
+		
+		This class integrates the Slang compiler into Godot, allowing developers to write shaders in 
+		the Slang language and automatically convert them to GLSL for use in Godot projects.
+	</description>
+	<tutorials>
+		<link title="Slang Documentation">https://shader-slang.com/slang/</link>
+		<link title="Official Slang Examples">https://github.com/shader-slang/slang/tree/master/examples</link>
+	</tutorials>
+	<methods>
+		<method name="compile_slang_to_glsl">
+			<return type="void" />
+			<param index="0" name="filename" type="String" />
+			<description>
+				Compiles a Slang shader file to GLSL format with automatic timestamp generation.
+				
+				The function looks for [param filename].slang and generates [param filename].glsl with:
+				- Generation timestamp and source information
+				- Godot-compatible #[compute] annotations  
+				- OpenGL 4.6 GLSL target specification
+				
+				Requirements:
+				- Input file must have a compute shader entry point named "computeMain"
+				- Entry point must be tagged with [shader("compute")] attribute
+				- Slang compiler must be properly initialized and linked
+				
+				Process:
+				1. Creates a global Slang session (compiler instance)
+				2. Sets up a local session with GLSL target configuration
+				3. Loads the Slang module from the source file
+				4. Finds the compute shader entry point ("computeMain") 
+				5. Composes the module and entry point into a program
+				6. Generates the target GLSL code
+				7. Saves the result with metadata headers
+			</description>
+		</method>
+		<method name="test_compile">
+			<return type="void" />
+			<description>
+				Simple test method that prints a compilation test message.
+			</description>
+		</method>
+	</methods>
+</class>

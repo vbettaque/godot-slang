@@ -1,0 +1,32 @@
+{
+    "name": "Godot Slang DevContainer",
+    "build": {
+        "dockerfile": "Dockerfile",
+        "context": ".."
+    },
+    "features": {
+        "ghcr.io/devcontainers/features/common-utils:2": {
+            "configureZshAsDefaultShell": true,
+            // "username": ""
+        }
+    },
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "terminal.integrated.shell.linux": "/bin/bash"
+            },
+            "extensions": [
+                "ms-vscode.cpptools",
+                "ms-python.python",
+                "ms-vscode.cmake-tools",
+                "ms-vscode.makefile-tools",
+                "neikeq.godot-csharp-vscode",
+                "geequlim.godot-tools",
+                "shader-slang.slang-language-extension"
+            ]
+        }
+    },
+    // "postCreateCommand": "pip3 install --user -r godot-cpp/pyproject.toml || true",
+    "remoteUser": "ubuntu",
+    // "workspaceFolder": "/workspaces"
+}
