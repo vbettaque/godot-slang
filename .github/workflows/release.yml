@@ -117,11 +117,15 @@ jobs:
       
       - name: Upload to release (if this is a release event)
         if: github.event_name == 'release'
-        uses: actions/upload-release-asset@v1
+        run: |
+          # Install GitHub CLI
+          apt-get update && apt-get install -y curl
+          curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg
+          chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg
+          echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | tee /etc/apt/sources.list.d/github-cli.list > /dev/null
+          apt-get update && apt-get install -y gh
+          
+          # Upload the release asset using gh CLI
+          gh release upload ${{ github.event.release.tag_name }} godot-slang-demo.zip --clobber
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ github.event.release.upload_url }}
-          asset_path: ./godot-slang-demo.zip
-          asset_name: godot-slang-demo.zip
-          asset_content_type: application/zip
