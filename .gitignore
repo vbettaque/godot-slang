@@ -9,6 +9,7 @@ build
 build-platform-generators
 .sconsign.dblite
 extension_api.json
+__pycache__/
 
 # Compiled Object files
 *.slo
@@ -16,3 +17,12 @@ extension_api.json
 *.o
 *.obj
 *.os
+
+# Generated files to ignore
+demo/.godot
+demo/bin
+demo/shader.glsl
+demo/shader.glsl.import
+
+# Keep documentation
+src/doc_data_godot_slang.gen.h

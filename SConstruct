@@ -4,7 +4,7 @@ import sys
 
 LIB_NAME = "libgodot-slang" # Must have "lib" as prefix
 
-BUILD_PATH = "build/addons/godot-slang"
+BUILD_PATH = "demo"
 
 SLANG_DEBUG_INCLUDE_PATH = "slang/build/RelWithDebInfo/include/"
 SLANG_DEBUG_LIB_PATHS = [
@@ -37,12 +37,22 @@ env = SConscript("godot-cpp/SConstruct")
 env.Append(CPPPATH=["src/"])
 sources = Glob("src/*.cpp")
 
+import editor_builders
+
+docs_xml = []
+docs_xml += Glob("src/doc_classes/*.xml")
+docs_xml = sorted(docs_xml)
+docs_header = "src/doc_data_godot_slang.gen.h"
+env.Command(docs_header, docs_xml, env.Action(editor_builders.make_doc_header, "Generating documentation header."))
+
 if env["target"] == "template_release":
     env.Append(CPPPATH=SLANG_RELEASE_INCLUDE_PATH)
     env.Append(LIBPATH=SLANG_RELEASE_LIB_PATHS)
 else:
-    env.Append(CPPPATH=SLANG_DEBUG_INCLUDE_PATH)
-    env.Append(LIBPATH=SLANG_DEBUG_LIB_PATHS)
+    env.Append(CPPPATH=SLANG_RELEASE_INCLUDE_PATH)
+    env.Append(LIBPATH=SLANG_RELEASE_LIB_PATHS)
+    # env.Append(CPPPATH=SLANG_DEBUG_INCLUDE_PATH)
+    # env.Append(LIBPATH=SLANG_DEBUG_LIB_PATHS)
 env.Append(LIBS=SLANG_LIBS)
 
 file_name = LIB_NAME + "." + env["target"][9:] # Trim "template_"
