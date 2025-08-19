@@ -1,0 +1,14 @@
+[remap]
+
+importer="godot-slang"
+type="SlangFile"
+uid="uid://bfsh574pcpcw8"
+path="res://.godot/imported/MyShaders.slang-f10511208ecd81fd349d7d703ba9ab41.res"
+
+[deps]
+
+source_file="res://MyShaders.slang"
+dest_files=["res://.godot/imported/MyShaders.slang-f10511208ecd81fd349d7d703ba9ab41.res"]
+
+[params]
+

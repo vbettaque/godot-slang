@@ -1,18 +1,63 @@
-# MacOS
-.DS_STORE
-
-# Visual Studio Code
-.vscode
-
-# Build files
-build
-build-platform-generators
-.sconsign.dblite
+# Godot auto generated files
+*.gen.*
+.godot/
 extension_api.json
 
-# Compiled Object files
-*.slo
-*.lo
+# Ignore library files but not the gdextension file
+demo/addons/godot-slang/bin/*
+!demo/addons/godot-slang/bin/android
+demo/addons/godot-slang/bin/android/*
+!demo/addons/godot-slang/bin/android/.gitkeep
+!demo/addons/godot-slang/bin/linux
+demo/addons/godot-slang/bin/linux/*
+!demo/addons/godot-slang/bin/linux/.gitkeep
+!demo/addons/godot-slang/bin/macos
+demo/addons/godot-slang/bin/macos/*
+!demo/addons/godot-slang/bin/macos/.gitkeep
+!demo/addons/godot-slang/bin/windows
+demo/addons/godot-slang/bin/windows/*
+!demo/addons/godot-slang/bin/windows/.gitkeep
+!demo/addons/godot-slang/bin/*.gdextension
+.sconsign*.dblite
+
+# Ignore custom.py
+custom.py
+
+# Ignore generated compile_commands.json
+compile_commands.json
+
+# Ignore files generated for documentation
+/src/gen
+
+# Binaries
 *.o
-*.obj
 *.os
+*.so
+*.obj
+*.bc
+*.pyc
+*.dblite
+*.pdb
+*.lib
+*.config
+*.creator
+*.creator.user
+*.files
+*.includes
+*.idb
+*.exp
+
+# Other stuff
+*.log
+
+# VSCode
+.vscode/*
+.DS_Store
+
+# Jetbrains
+.idea/
+
+# Cmake
+build
+cmake-build*
+CMakeUserPresets.json

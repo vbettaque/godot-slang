@@ -1,6 +1,7 @@
 #include "register_types.h"
 
-// #include "gdexample.h"
+#include "slang_session.h"
+#include "slang_program.h"
 
 #include <gdextension_interface.h>
 #include <godot_cpp/core/defs.hpp>
@@ -12,8 +13,8 @@ void initialize_module(ModuleInitializationLevel p_level) {
 	if (p_level != MODULE_INITIALIZATION_LEVEL_SCENE) {
 		return;
 	}
-
-	// GDREGISTER_CLASS(GDExample);
+	GDREGISTER_CLASS(godot::SlangSession);
+	// GDREGISTER_ABSTRACT_CLASS(SlangProgram);
 }
 
 void uninitialize_module(ModuleInitializationLevel p_level) {

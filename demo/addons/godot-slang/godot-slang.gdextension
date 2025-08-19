@@ -1,0 +1,58 @@
+[configuration]
+
+entry_symbol = "godot_slang_init"
+compatibility_minimum = "4.4"
+reloadable = true
+
+[libraries]
+; Relative paths ensure that our GDExtension can be placed anywhere in the project directory.
+macos.single.debug = "./bin/macos/libgodot-slang.macos.template_debug.universal.dylib"
+macos.double.debug = "./bin/macos/libgodot-slang.macos.template_debug.universal.double.dylib"
+macos.single.release = "./bin/macos/libgodot-slang.macos.template_release.universal.dylib"
+macos.double.release = "./bin/macos/libgodot-slang.macos.template_debug.double.universal.dylib"
+
+windows.x86_32.single.debug = "./bin/windows/godot-slang.windows.template_debug.x86_32.dll"
+windows.x86_32.double.debug = "./bin/windows/godot-slang.windows.template_debug.x86_32.double.dll"
+windows.x86_32.single.release = "./bin/windows/godot-slang.windows.template_release.x86_32.dll"
+windows.x86_32.double.release = "./bin/windows/godot-slang.windows.template_release.x86_32.double.dll"
+
+windows.x86_64.single.debug = "./bin/windows/godot-slang.windows.template_debug.x86_64.dll"
+windows.x86_64.double.debug = "./bin/windows/godot-slang.windows.template_debug.x86_64.double.dll"
+windows.x86_64.single.release = "./bin/windows/godot-slang.windows.template_release.x86_64.dll"
+windows.x86_64.double.release = "./bin/windows/godot-slang.windows.template_release.x86_64.double.dll"
+
+linux.x86_64.single.debug = "./bin/linux/libgodot-slang.linux.template_debug.x86_64.so"
+linux.x86_64.double.debug = "./bin/linux/libgodot-slang.linux.template_debug.x86_64.double.so"
+linux.x86_64.single.release = "./bin/linux/libgodot-slang.linux.template_release.x86_64.so"
+linux.x86_64.double.release = "./bin/linux/libgodot-slang.linux.template_release.x86_64.double.so"
+
+linux.arm64.single.debug = "./bin/linux/libgodot-slang.linux.template_debug.arm64.so"
+linux.arm64.double.debug = "./bin/linux/libgodot-slang.linux.template_debug.arm64.double.so"
+linux.arm64.single.release = "./bin/linux/libgodot-slang.linux.template_release.arm64.so"
+linux.arm64.double.release = "./bin/linux/libgodot-slang.linux.template_release.arm64.double.so"
+
+
+[dependencies]
+
+macos.debug = {
+    "./bin/macos/libslang.macos.template_debug.univeral.dylib" : "Contents/Frameworks"
+}
+macos.release = {
+    "./bin/macos/libslang.macos.template_release.univeral.dylib" : "Contents/Frameworks"
+}
+windows.debug = {
+    "./bin/windows/libslang.windows.template_debug.x86_64.dll" : "",
+    "./bin/windows/libslang.windows.template_debug.x86_32.dll" : ""
+}
+windows.release = {
+    "./bin/windows/libslang.windows.template_release.x86_64.dll" : "",
+    "./bin/windows/libslang.windows.template_release.x86_32.dll" : ""
+}
+linux.debug = {
+    "./bin/linux/libslang.linux.template_debug.x86_64.so" : "",
+    "./bin/linux/libslang.linux.template_debug.arm64.so" : "",
+}
+linux.release = {
+    "./bin/linux/libslang.linux.template_release.x86_64.so" : "",
+    "./bin/linux/libslang.linux.template_release.arm64.so" : "",
+}
